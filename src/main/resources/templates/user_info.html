@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+<h2>User Info</h2>
+<br>
+
+<table>
+    <form th:method="POST" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
+
+        <td>
+            <label for="username">Username</label><br/><br/>
+            <label for="password">Password</label><br/><br/>
+<!--            <label for="roles">Role</label><br/><br/>-->
+            <input type="submit" value="OK"/>
+        </td>
+
+        <td>
+            <input type="text" th:field="*{username}" id="username"><br/><br>
+            <input type="password" th:field="*{password}" id="password"><br/><br>
+<!--            <input type="text" th:field="*{roles}" id="roles"><br/><br>-->
+            <br/>
+
+        </td>
+
+        <td>
+            <label for="role">Roles:</label>
+            <select size="2" multiple="multiple" th:field="*{roles}"
+                    type="text" id="role">
+                <option th:each="role : ${user_roles}" th:value="${role.getId()}" th:text="${role.getRoleName()}"></option>
+
+            </select>
+
+        </td>
+    </form>
+</table>
+<br/><br/>
+
+<input type="button" value="Logout" onclick="window.location.href = 'logout'"/>
+</body>
+</html>
