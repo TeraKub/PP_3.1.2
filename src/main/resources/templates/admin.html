@@ -10,14 +10,22 @@
 
 <table>
     <tr>
-        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Instrument</th>
         <th>Login</th>
         <th>Role</th>
+        <th>Update</th>
+        <th>Delete</th>
     </tr>
 
     <tbody>
     <tr th:each="user : ${users}">
-        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getSurname()}"></td>
+        <td th:text="${user.getAge()}"></td>
+        <td th:text="${user.getInstrument()}"></td>
         <td th:text="${user.getUsername()}"></td>
         <td><p th:each=" role : ${user.getRoles()}" th:text="${role.getRoleName()}"></p></td>
         <td>
