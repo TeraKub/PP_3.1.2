@@ -59,7 +59,8 @@ public class UserServiceImp implements UserService {
     @Override
     @Transactional
     public boolean saveUser(User user) {
-        if (findByUsername(user.getUsername()) != null) {
+        if (findByUsername(user.getUsername()) != null && user.getId() == 0) {
+            System.out.println(user.getId());
             return false;
         }
 //        user.setRoles(Collections.singleton(new Role(1, "ROLE_USER")));
