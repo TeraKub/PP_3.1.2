@@ -15,6 +15,10 @@ public class Role implements GrantedAuthority {
     @Column(name = "name")
     private String name;
 
+//    @ManyToMany
+//    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
+//    private User user;
+
     public Role() {
     }
 

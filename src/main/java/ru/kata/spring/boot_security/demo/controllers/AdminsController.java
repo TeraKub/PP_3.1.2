@@ -6,18 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RoleService;
-import ru.kata.spring.boot_security.demo.services.UserServiceImp;
-
-import javax.persistence.Access;
+import ru.kata.spring.boot_security.demo.services.UserService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminsController {
-    private final UserServiceImp userService;
+    private final UserService userService;
     private final RoleService roleService;
 
     @Autowired
-    public AdminsController(UserServiceImp userService, RoleService roleService) {
+    public AdminsController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }
